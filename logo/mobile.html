@@ -1,6 +1,6 @@
 <html>
-<style>html,body{margin:0; background-color: #fff}</style>
-<body></body>
+<style>html,body{margin:0; background-color: #fff overflow:hidden;}</style>
+<body ontouchstart="showCoordinates(event)" ontouchmove="showCoordinates(event)" ></body>
 <script type='text/javascript' src='js/xml-formatter.js'></script>
 <script>
 var width = window.innerWidth;
@@ -25,7 +25,7 @@ function create(later) {
 	svgElem.appendChild(background);
 	var gap = 15;
 	var v = height/width*120;
-	var mx = height/2-(v*3.5+gap*5);
+	var mx = height/2-(v*3.5+gap*4);
 	var my = width/2-v;
 	var g1 = doc.createElement('g');
 	g1.setAttribute('style','stroke:#aabbff;stroke-width:1.2;');
@@ -192,9 +192,9 @@ function create(later) {
 
 lines = document.getElementsByTagName('line');
 bckdom = document.getElementById('bg');
-document.body.onmousemove = function(e) {
-	var xpos = e.clientX;
-	var ypos = e.clientY;
+function showCoordinates(e){
+	var xpos = e.touches[0].clientX;
+  	var ypos = e.touches[0].clientY;
 	var r1 = 12;
 	var r2 = 7;
 	var r3 = 15;	
