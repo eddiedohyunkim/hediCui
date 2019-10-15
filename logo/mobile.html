@@ -1,0 +1,226 @@
+<html>
+<style>html,body{margin:0; background-color: #fff}</style>
+<body></body>
+<script type='text/javascript' src='js/xml-formatter.js'></script>
+<script>
+var width = window.innerWidth;
+var height = window.innerHeight ;
+var formattedXml;
+var lines, bckdom;
+var a = true;
+var doc = document.implementation.createDocument(', ', null);
+create(function(){xmlWriter();});
+function create(later) {
+	var svgElem = doc.createElement('svg');
+	svgElem.setAttribute('xmlns','http://www.w3.org/2000/svg');
+	svgElem.setAttribute('version','1.0');
+	svgElem.setAttribute('width',width);
+	svgElem.setAttribute('height',height);
+
+	var background = doc.createElement('rect');
+	background.setAttribute('id','bg')
+	background.setAttribute('width',width);
+	background.setAttribute('height',height);
+	background.setAttribute('style','fill:#000000');
+	svgElem.appendChild(background);
+	var gap = 15;
+	var v = height/width*120;
+	var mx = height/2-(v*3.5+gap*5);
+	var my = width/2-v;
+	var g1 = doc.createElement('g');
+	g1.setAttribute('style','stroke:#aabbff;stroke-width:1.2;');
+	g1.setAttribute('stroke-linecap',"round");
+	g1.setAttribute('stroke-dasharray',Math.floor(Math.random()*3)+','+Math.floor(Math.random()*20)+','+Math.floor(Math.random()*3)+','+Math.floor(Math.random()*20)+','+Math.floor(Math.random()*3)+','+Math.floor(Math.random()*20))
+	
+		for (var i=0; i<=v; i+=10){
+			var h1 = doc.createElement('line');
+			h1.setAttribute('y1',mx+0);
+			h1.setAttribute('x1',my+i);
+			h1.setAttribute('y2',mx+i);
+			h1.setAttribute('x2',my+(v*2)/2);
+			g1.appendChild(h1);
+			var h2 = doc.createElement('line');
+			h2.setAttribute('y1',mx+i);
+			h2.setAttribute('x1',my+(v*2)/2);
+			h2.setAttribute('y2',mx+v);
+			h2.setAttribute('x2',my+(v*2)/2-i);
+			g1.appendChild(h2);
+			var h3 = doc.createElement('line');
+			h3.setAttribute('y1',mx+v-i);
+			h3.setAttribute('x1',my+(v*2)/2);
+			h3.setAttribute('y2',mx+0);
+			h3.setAttribute('x2',my+(v*2)/2+(i));
+			g1.appendChild(h3);
+			var h4 = doc.createElement('line');
+			h4.setAttribute('y1',mx+i);
+			h4.setAttribute('x1',my+(v*2)/2);
+			h4.setAttribute('y2',mx+v);
+			h4.setAttribute('x2',my+(v*2)/2+i);
+			g1.appendChild(h4);
+
+			var e1 = doc.createElement('line');
+			e1.setAttribute('y1',mx+v+gap);
+			e1.setAttribute('x1',my+i);
+			e1.setAttribute('y2',mx+v+i+gap);
+			e1.setAttribute('x2',my+(v*2)/2);
+			g1.appendChild(e1);
+			var e2 = doc.createElement('line');
+			e2.setAttribute('y1',mx+v+i+gap);
+			e2.setAttribute('x1',my+0);
+			e2.setAttribute('y2',mx+v+gap);
+			e2.setAttribute('x2',my+(v*2)/2-i);
+			g1.appendChild(e2);
+			var e3 = doc.createElement('line');
+			e3.setAttribute('y1',mx+(v*2)-i+gap);
+			e3.setAttribute('x1',my+(v*2)/2);
+			e3.setAttribute('y2',mx+v+gap);
+			e3.setAttribute('x2',my+(v*2)/2+(i));
+			g1.appendChild(e3);
+			var e4 = doc.createElement('line');
+			e4.setAttribute('y1',mx+v+gap);
+			e4.setAttribute('x1',my+(v*2)/2+i);
+			e4.setAttribute('y2',mx+v+i+gap);
+			e4.setAttribute('x2',my+(v*2));
+			g1.appendChild(e4);
+
+			var d1 = doc.createElement('line');
+			d1.setAttribute('y1',mx+(v*2)+i+gap*2);
+			d1.setAttribute('x1',my+0);
+			d1.setAttribute('y2',mx+(v*3)+gap*2);
+			d1.setAttribute('x2',my+i);
+			g1.appendChild(d1);
+			var d2 = doc.createElement('line');
+			d2.setAttribute('y1',mx+(v*3)+gap*2);
+			d2.setAttribute('x1',my+(v*2)/2+i);
+			d2.setAttribute('y2',mx+(v*3)-i+gap*2);
+			d2.setAttribute('x2',my+(v*2));
+			g1.appendChild(d2);
+
+			var i1 = doc.createElement('line');
+			i1.setAttribute('y1',mx+(v*3.5)-i/2+gap*3);
+			i1.setAttribute('x1',my+0);
+			i1.setAttribute('y2',mx+(v*3.5)+gap*3);
+			i1.setAttribute('x2',my+(v*2)/2-i);
+			g1.appendChild(i1);
+			var i2 = doc.createElement('line');
+			i2.setAttribute('y1',mx+(v*3.5)+i/2+gap*3);
+			i2.setAttribute('x1',my+0);
+			i2.setAttribute('y2',mx+(v*3.5)+gap*3);
+			i2.setAttribute('x2',my+(v*2)/2-i);
+			g1.appendChild(i2);
+			var i3 = doc.createElement('line');
+			i3.setAttribute('y1',mx+(v*3.5)-i/2+gap*3);
+			i3.setAttribute('x1',my+(v*2));
+			i3.setAttribute('y2',mx+(v*3.5)+gap*3);
+			i3.setAttribute('x2',my+(v*2)/2+i);
+			g1.appendChild(i3);
+			var i4 = doc.createElement('line');
+			i4.setAttribute('y1',mx+(v*3.5)+i/2+gap*3);
+			i4.setAttribute('x1',my+(v*2));
+			i4.setAttribute('y2',mx+(v*3.5)+gap*3);
+			i4.setAttribute('x2',my+(v*2)/2+i);
+			g1.appendChild(i4);
+
+			var c1 = doc.createElement('line');
+			c1.setAttribute('y1',mx+(v*4)+i+gap*6);
+			c1.setAttribute('x1',my+0);
+			c1.setAttribute('y2',mx+(v*4)+gap*6);
+			c1.setAttribute('x2',my+(v*2)/2-i);
+			g1.appendChild(c1);
+			var c2 = doc.createElement('line');
+			c2.setAttribute('y1',mx+(v*4)+gap*6);
+			c2.setAttribute('x1',my+(v*2)/2+i);
+			c2.setAttribute('y2',mx+(v*4)+i+gap*6);
+			c2.setAttribute('x2',my+(v*2));
+			g1.appendChild(c2);
+
+			var u1 = doc.createElement('line');
+			u1.setAttribute('y1',mx+(v*5)+i+gap*7);
+			u1.setAttribute('x1',my+(v*2));
+			u1.setAttribute('y2',mx+(v*5)+gap*7);
+			u1.setAttribute('x2',my+(v*2)/2+i);
+			g1.appendChild(u1);
+			var u2 = doc.createElement('line');
+			u2.setAttribute('y1',mx+(v*5)+i+gap*7);
+			u2.setAttribute('x1',my+(v*2));
+			u2.setAttribute('y2',mx+(v*6)+gap*7);
+			u2.setAttribute('x2',my+(v*2)-i);
+			g1.appendChild(u2);
+			var u3 = doc.createElement('line');
+			u3.setAttribute('y1',mx+(v*5.5)+i/2+gap*7);
+			u3.setAttribute('x1',my+0);
+			u3.setAttribute('y2',mx+(v*6)+gap*7);
+			u3.setAttribute('x2',my+i);
+			g1.appendChild(u3);
+			var u4 = doc.createElement('line');
+			u4.setAttribute('y1',mx+(v*5.5)-i/2+gap*7);
+			u4.setAttribute('x1',my+0);
+			u4.setAttribute('y2',mx+(v*5)+gap*7);
+			u4.setAttribute('x2',my+i);
+			g1.appendChild(u4);
+
+			var i1 = doc.createElement('line');
+			i1.setAttribute('y1',mx+(v*6.5)-i/2+gap*8);
+			i1.setAttribute('x1',my+0);
+			i1.setAttribute('y2',mx+(v*6.5)+gap*8);
+			i1.setAttribute('x2',my+(v*2)/2-i);
+			g1.appendChild(i1);
+			var i2 = doc.createElement('line');
+			i2.setAttribute('y1',mx+(v*6.5)+i/2+gap*8);
+			i2.setAttribute('x1',my+0);
+			i2.setAttribute('y2',mx+(v*6.5)+gap*8);
+			i2.setAttribute('x2',my+(v*2)/2-i);
+			g1.appendChild(i2);
+			var i3 = doc.createElement('line');
+			i3.setAttribute('y1',mx+(v*6.5)-i/2+gap*8);
+			i3.setAttribute('x1',my+(v*2));
+			i3.setAttribute('y2',mx+(v*6.5)+gap*8);
+			i3.setAttribute('x2',my+(v*2)/2+i);
+			g1.appendChild(i3);
+			var i4 = doc.createElement('line');
+			i4.setAttribute('y1',mx+(v*6.5)+i/2+gap*8);
+			i4.setAttribute('x1',my+(v*2));
+			i4.setAttribute('y2',mx+(v*6.5)+gap*8);
+			i4.setAttribute('x2',my+(v*2)/2+i);
+			g1.appendChild(i4);
+		}	
+
+	svgElem.appendChild(g1);
+	doc.appendChild(svgElem);
+ 	later();
+}
+
+lines = document.getElementsByTagName('line');
+bckdom = document.getElementById('bg');
+document.body.onmousemove = function(e) {
+	var xpos = e.clientX;
+	var ypos = e.clientY;
+	var r1 = 12;
+	var r2 = 7;
+	var r3 = 15;	
+	for(var i=0; i<=lines.length/2; i+=1){
+		lines[i].style.stroke='#aabbff';
+		lines[i].setAttribute('stroke-dasharray',''+xpos/r1+','+ypos/r1+','+xpos/r2+','+ypos/r2+','+xpos/r3+','+ypos/r3);
+	}
+	for(var i=lines.length/2; i<=lines.length; i+=1){
+		var r = Math.floor(Math.random()*255);
+		lines[i].setAttribute('style','stroke:#ffffff;stroke-width:'+Math.floor(Math.random()*3.75)+';');
+		lines[i].setAttribute('stroke-dasharray', Math.floor(Math.random()*3)+','+ypos/Math.floor(Math.random()*50)+','+Math.floor(Math.random()*3)+','+ypos/Math.floor(Math.random()*50)+','+Math.floor(Math.random()*3)+','+ypos/Math.floor(Math.random()*50));
+	}
+}
+
+function xmlWriter(){
+	var s = new XMLSerializer();
+	var str = '<?xml version="1.0" encoding="UTF-8"?>' + s.serializeToString(doc);
+	var format = require('xml-formatter');
+	formattedXml = format(str);
+	// console.log(formattedXml);
+	print();
+}
+
+function print (){
+	var display = document.querySelector('body');
+	display.innerHTML = formattedXml;
+};
+</script>
+</html>
