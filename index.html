@@ -221,12 +221,12 @@ function handleOrientation(event) {
 	var r3 = 15;	
 	for(var i=0; i<=lines.length/2; i+=1){
 		lines[i].style.stroke='#aabbff';
-		lines[i].setAttribute('stroke-dasharray',''+xpos/r1+','+ypos/r1+','+xpos/r2+','+ypos/r2+','+xpos/r3+','+ypos/r3);
+		lines[i].setAttribute('stroke-dasharray',''+xpos*r1+','+ypos*r1+','+xpos*r2+','+ypos*r2+','+xpos*r3+','+ypos*r3);
 	}
 	for(var i=lines.length/2; i<=lines.length; i+=1){
 		var r = Math.floor(Math.random()*255);
 		lines[i].setAttribute('style','stroke:#ffffff;stroke-width:'+Math.floor(Math.random()*6)+';');
-		lines[i].setAttribute('stroke-dasharray', Math.floor(Math.random()*3)+','+ypos/Math.floor(Math.random()*50)+','+Math.floor(Math.random()*3)+','+ypos/Math.floor(Math.random()*50)+','+Math.floor(Math.random()*3)+','+ypos/Math.floor(Math.random()*50));
+		lines[i].setAttribute('stroke-dasharray', Math.floor(Math.random()*3)+','+ypos*Math.floor(Math.random()*50)+','+Math.floor(Math.random()*3)+','+ypos*Math.floor(Math.random()*50)+','+Math.floor(Math.random()*3)+','+ypos*Math.floor(Math.random()*50));
 	}
 }
 
