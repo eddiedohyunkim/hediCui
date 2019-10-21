@@ -1,6 +1,7 @@
 <html>
 <style>html,body{margin:0; overflow:hidden; position:fixed;}</style>
-<body ontouchstart="showCoordinates(event)" ontouchmove="showCoordinates(event)" ></body>
+<!-- <body ontouchstart="showCoordinates(event)" ontouchmove="showCoordinates(event)" ></body> -->
+<body></body>
 <script type='text/javascript' src='logo/js/xml-formatter.js'></script>
 <script>
 var width = window.innerWidth;
@@ -196,9 +197,25 @@ function create(later) {
 
 lines = document.getElementsByTagName('line');
 bckdom = document.getElementById('bg');
-function showCoordinates(e){
-	var xpos = e.touches[0].clientX;
-  	var ypos = e.touches[0].clientY;
+// function showCoordinates(e){
+// 	var xpos = e.touches[0].clientX;
+//   	var ypos = e.touches[0].clientY;
+// 	var r1 = 12;
+// 	var r2 = 7;
+// 	var r3 = 15;	
+// 	for(var i=0; i<=lines.length/2; i+=1){
+// 		lines[i].style.stroke='#aabbff';
+// 		lines[i].setAttribute('stroke-dasharray',''+xpos/r1+','+ypos/r1+','+xpos/r2+','+ypos/r2+','+xpos/r3+','+ypos/r3);
+// 	}
+// 	for(var i=lines.length/2; i<=lines.length; i+=1){
+// 		var r = Math.floor(Math.random()*255);
+// 		lines[i].setAttribute('style','stroke:#ffffff;stroke-width:'+Math.floor(Math.random()*6)+';');
+// 		lines[i].setAttribute('stroke-dasharray', Math.floor(Math.random()*3)+','+ypos/Math.floor(Math.random()*50)+','+Math.floor(Math.random()*3)+','+ypos/Math.floor(Math.random()*50)+','+Math.floor(Math.random()*3)+','+ypos/Math.floor(Math.random()*50));
+// 	}
+// }
+function handleOrientation(event) {
+  	var xpos = event.gamma;
+  	var ypos = event.beta;
 	var r1 = 12;
 	var r2 = 7;
 	var r3 = 15;	
@@ -212,6 +229,8 @@ function showCoordinates(e){
 		lines[i].setAttribute('stroke-dasharray', Math.floor(Math.random()*3)+','+ypos/Math.floor(Math.random()*50)+','+Math.floor(Math.random()*3)+','+ypos/Math.floor(Math.random()*50)+','+Math.floor(Math.random()*3)+','+ypos/Math.floor(Math.random()*50));
 	}
 }
+
+window.addEventListener('deviceorientation', handleOrientation);
 
 function xmlWriter(){
 	var s = new XMLSerializer();
