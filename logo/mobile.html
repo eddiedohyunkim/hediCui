@@ -208,7 +208,7 @@ function showCoordinates(e){
 	}
 	for(var i=lines.length/2; i<=lines.length; i+=1){
 		var r = Math.floor(Math.random()*255);
-		lines[i].setAttribute('style','stroke:#ffffff;stroke-width:'+Math.floor(Math.random()*3.75)+';');
+		lines[i].setAttribute('style','stroke:#ffffff;stroke-width:'+Math.floor(Math.random()*5)+';');
 		lines[i].setAttribute('stroke-dasharray', Math.floor(Math.random()*3)+','+ypos/Math.floor(Math.random()*50)+','+Math.floor(Math.random()*3)+','+ypos/Math.floor(Math.random()*50)+','+Math.floor(Math.random()*3)+','+ypos/Math.floor(Math.random()*50));
 	}
 }
