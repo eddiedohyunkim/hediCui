@@ -29,9 +29,9 @@ function create(later) {
 	var mx = width/2-(v*2+gap*1.5);
 	var my = height/2-v*2;
 	var g1 = doc.createElement('g');
-	g1.setAttribute('style','stroke:#aabbff;stroke-width:2;');
-	g1.setAttribute('stroke-linecap',"round");
-	g1.setAttribute('stroke-dasharray',Math.floor(Math.random()*3)+','+Math.floor(Math.random()*20)+','+Math.floor(Math.random()*3)+','+Math.floor(Math.random()*20)+','+Math.floor(Math.random()*3)+','+Math.floor(Math.random()*20))
+	// g1.setAttribute('style','stroke:#aabbff;stroke-width:2;');
+	// g1.setAttribute('stroke-linecap',"round");
+	// g1.setAttribute('stroke-dasharray',Math.floor(Math.random()*3)+','+Math.floor(Math.random()*20)+','+Math.floor(Math.random()*3)+','+Math.floor(Math.random()*20)+','+Math.floor(Math.random()*3)+','+Math.floor(Math.random()*20))
 	
 		for (var i=0; i<=v; i+=10){
 			
@@ -209,7 +209,7 @@ function handleOrientation(event) {
 	for(var i=lines.length/2; i<=lines.length; i+=1){
 		var r = Math.floor(Math.random()*255);
 		lines[i].setAttribute('style','stroke:#ffffff;stroke-width:'+Math.floor(Math.random()*6)+';');
-		lines[i].setAttribute('stroke-dasharray', Math.floor(Math.random()*3)+','+ypos*xpos+','+Math.floor(Math.random()*3)+','+ypos*xpos+','+Math.floor(Math.random()*3)+','+ypos*xpos);
+		lines[i].setAttribute('stroke-dasharray', Math.floor(Math.random()*3)+','+ypos*xpos*Math.floor(Math.random()*20)+','+Math.floor(Math.random()*3)+','+ypos*xpos*Math.floor(Math.random()*20)+','+Math.floor(Math.random()*3)+','+ypos*xpos*Math.floor(Math.random()*20));
 	}
 }
 
