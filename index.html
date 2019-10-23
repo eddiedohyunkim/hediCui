@@ -205,7 +205,7 @@ function handleOrientation(event) {
 
 	for(var i=lines.length/2; i<=lines.length; i+=1){
 		lines[i].setAttribute('style','stroke:#ffffff;stroke-width:'+Math.floor(Math.random()*6)+';');
-		lines[i].setAttribute('stroke-dasharray', Math.floor(Math.random()*3)+','+ypos-45*Math.floor(Math.random()*20)+','+Math.floor(Math.random()*3)+','+ypos-45*Math.floor(Math.random()*20)+','+Math.floor(Math.random()*3)+','+ypos-45*Math.floor(Math.random()*20));
+		lines[i].setAttribute('stroke-dasharray', Math.floor(Math.random()*3)+','+ypos+45*Math.floor(Math.random()*20)+','+Math.floor(Math.random()*3)+','+ypos+45*Math.floor(Math.random()*20)+','+Math.floor(Math.random()*3)+','+ypos+45*Math.floor(Math.random()*20));
 	}
 }
 window.addEventListener('deviceorientation', handleOrientation);
