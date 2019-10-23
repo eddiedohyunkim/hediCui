@@ -221,7 +221,7 @@ function handleOrientation(event) {
 	var r3 = 15;	
 	for(var i=0; i<=lines.length/2; i+=1){
 		lines[i].style.stroke='#aabbff';
-		lines[i].setAttribute('stroke-dasharray',''+xpos*r1+','+ypos*r1+','+xpos*r2+','+ypos*r2+','+xpos*r3+','+ypos*r3);
+		lines[i].setAttribute('stroke-dasharray',''+Math.pow(xpos,2)/r1+','+Math.pow(ypos,2)/r1+','+Math.pow(xpos,2)/r2+','+Math.pow(ypos,2)/r2+','+Math.pow(xpos,2)/r3+','+Math.pow(ypos,2)/r3);
 	}
 	for(var i=lines.length/2; i<=lines.length; i+=1){
 		var r = Math.floor(Math.random()*255);
