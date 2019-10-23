@@ -216,12 +216,10 @@ bckdom = document.getElementById('bg');
 function handleOrientation(event) {
   	var xpos = event.gamma;
   	var ypos = event.beta;
-	var r1 = 10;
-	var r2 = 10;
-	var r3 = 10;	
+	var r = 2;
 	for(var i=0; i<=lines.length/2; i+=1){
 		lines[i].style.stroke='#aabbff';
-		lines[i].setAttribute('stroke-dasharray',''+Math.pow(xpos,2)/r1+','+Math.pow(ypos,2)/r1+','+Math.pow(xpos,2)/r2+','+Math.pow(ypos,2)/r2+','+Math.pow(xpos,2)/r3+','+Math.pow(ypos,2)/r3);
+		lines[i].setAttribute('stroke-dasharray',''+Math.pow(xpos,2)*r+','+Math.pow(ypos,2)*r+','+Math.pow(xpos,2)*r+','+Math.pow(ypos,2)*r+','+Math.pow(xpos,2)*r+','+Math.pow(ypos,2)*r);
 	}
 	for(var i=lines.length/2; i<=lines.length; i+=1){
 		var r = Math.floor(Math.random()*255);
