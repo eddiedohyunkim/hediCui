@@ -4,10 +4,8 @@
 <script type='text/javascript' src='logo/js/xml-formatter.js'></script>
 <script>
 var width = window.innerWidth;
-var height = window.innerHeight ;
+var height = window.innerHeight;
 var formattedXml;
-var lines;
-var a = true;
 var doc = document.implementation.createDocument(', ', null);
 create(function(){xmlWriter();});
 function create(later) {
@@ -23,6 +21,7 @@ function create(later) {
 	background.setAttribute('height',height);
 	background.setAttribute('style','fill:#000000');
 	svgElem.appendChild(background);
+
 	var gap = 15;
 	var v = width/4-gap;
 	var mx = width/2-(v*2+gap*1.5);
@@ -33,7 +32,6 @@ function create(later) {
 	g1.setAttribute('stroke-dasharray',Math.floor(Math.random()*3)+','+Math.floor(Math.random()*20)+','+Math.floor(Math.random()*3)+','+Math.floor(Math.random()*20)+','+Math.floor(Math.random()*3)+','+Math.floor(Math.random()*20))
 	
 		for (var i=0; i<=v; i+=10){
-			
 			var h1 = doc.createElement('line');
 			h1.setAttribute('x1',mx+0);
 			h1.setAttribute('y1',my+i);
@@ -122,8 +120,7 @@ function create(later) {
 			i4.setAttribute('y2',my+(v*2)/2+i);
 			g1.appendChild(i4);
 
-
-
+			// line space
 			var c1 = doc.createElement('line');
 			c1.setAttribute('x1',mx+i+gap*9);
 			c1.setAttribute('y1',my+(v*2)+gap);
@@ -194,7 +191,7 @@ function create(later) {
  	later();
 }
 
-lines = document.getElementsByTagName('line');
+var lines = document.getElementsByTagName('line');
 
 function handleOrientation(event) {
   	var xpos = event.gamma;
@@ -209,7 +206,6 @@ function handleOrientation(event) {
 	}
 
 	for(var i=lines.length/2; i<=lines.length; i+=1){
-		var r = Math.floor(Math.random()*255);
 		lines[i].setAttribute('style','stroke:#ffffff;stroke-width:'+Math.floor(Math.random()*6)+';');
 		lines[i].setAttribute('stroke-dasharray', Math.floor(Math.random()*3)+','+ypos*Math.floor(Math.random()*20)+','+Math.floor(Math.random()*3)+','+ypos*Math.floor(Math.random()*20)+','+Math.floor(Math.random()*3)+','+ypos*Math.floor(Math.random()*20));
 	}
