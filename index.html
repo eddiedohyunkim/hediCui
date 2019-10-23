@@ -209,7 +209,7 @@ function handleOrientation(event) {
 	for(var i=lines.length/2; i<=lines.length; i+=1){
 		var r = Math.floor(Math.random()*255);
 		lines[i].setAttribute('style','stroke:#ffffff;stroke-width:'+Math.floor(Math.random()*6)+';');
-		lines[i].setAttribute('stroke-dasharray', Math.floor(Math.random()*3)+','+ypos+','+Math.floor(Math.random()*3)+','+ypos+','+Math.floor(Math.random()*3)+','+ypos);
+		lines[i].setAttribute('stroke-dasharray', Math.floor(Math.random()*3)+','+ypos*xpos+','+Math.floor(Math.random()*3)+','+ypos*xpos+','+Math.floor(Math.random()*3)+','+ypos*xpos);
 	}
 }
 
