@@ -199,11 +199,13 @@ lines = document.getElementsByTagName('line');
 function handleOrientation(event) {
   	var xpos = event.gamma;
   	var ypos = event.beta;
-	var r = 2;
+	var r = 1;
 
+	var mxpos = Math.pow(xpos,2);
+	var mypos = Math.pow(ypos,2);
 	for(var i=0; i<=lines.length/2; i+=1){
 		lines[i].style.stroke='#aabbff';
-		lines[i].setAttribute('stroke-dasharray',''+Math.pow(xpos,2)*r+','+Math.pow(ypos,2)*r+','+Math.pow(xpos,2)*r+','+Math.pow(ypos,2)*r+','+Math.pow(xpos,2)*r+','+Math.pow(ypos,2)*r);
+		lines[i].setAttribute('stroke-dasharray',''+mxpos*r+','+mypos*r+','+mxpos*r+','+mypos*r+','+mxpos*r+','+mypos*r);
 	}
 
 	for(var i=lines.length/2; i<=lines.length; i+=1){
