@@ -196,13 +196,11 @@ var lines = document.getElementsByTagName('line');
 function handleOrientation(event) {
   	var xpos = event.gamma;
   	var ypos = event.beta;
-	var r = 1;
-
 	var mxpos = Math.pow(xpos,2);
 	var mypos = Math.pow(ypos,2);
 	for(var i=0; i<=lines.length/2; i+=1){
 		lines[i].style.stroke='#aabbff';
-		lines[i].setAttribute('stroke-dasharray',''+mxpos*r+','+mypos*r+','+mxpos*r+','+mypos*r+','+mxpos*r+','+mypos*r);
+		lines[i].setAttribute('stroke-dasharray', mxpos+','+mypos);
 	}
 
 	for(var i=lines.length/2; i<=lines.length; i+=1){
@@ -210,7 +208,6 @@ function handleOrientation(event) {
 		lines[i].setAttribute('stroke-dasharray', Math.floor(Math.random()*3)+','+ypos*Math.floor(Math.random()*20)+','+Math.floor(Math.random()*3)+','+ypos*Math.floor(Math.random()*20)+','+Math.floor(Math.random()*3)+','+ypos*Math.floor(Math.random()*20));
 	}
 }
-
 window.addEventListener('deviceorientation', handleOrientation);
 
 function xmlWriter(){
